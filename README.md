@@ -1,12 +1,12 @@
 # Checkthis!
 ---
-### A simple jQuery plugin for replacing radio buttons with a styled alternative.   
+### A simple jQuery plugin for replacing radio buttons with a styled alternative.
 
-1. Add a radio button input and give it a unique class. 
+1. Add a radio button input and give it a unique class.
 2. Add an anchor tag with a class of **checkthis**
-3. Add a data attribute with class **data-checkthis** to the anchor tag with the value of the unique tag from the radio button input.
+3. Add a data attribute with class **data-checkthis** to the anchor tag with the value of the unique class from the radio button input.
 4. Run the plugin when your document loads `$('.checkthis').checkthis();`
- 
+
 ###Example
 ##### Markup
 ```
