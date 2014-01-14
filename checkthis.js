@@ -25,11 +25,39 @@
     return this.each(function() {
 
       $(this).on('click', function(e){
+        // Prevent the default click event
         e.preventDefault();
-        var target = '.' + this.getAttribute('data-checkthis');
-        $(target).prop('checked',true);
-        $('.checkthis').removeClass('checked');
-        $(this).addClass('checked');
+
+        // Cache any selectors
+        var $this = $(this),
+            $target = $(this.getAttribute('data-checkthis'));
+
+        // If it's a radio button...
+        if ($target.prop("type") === 'radio') {
+          // Check it
+          $target.prop('checked',true);
+          // Remove the other check this classes
+          $('.checkthis').removeClass('checked');
+          // Add the checked class to the clicked element
+          $this.addClass('checked');
+        }
+
+        // If it's a checkbox...
+        if ($target.prop("type") === 'checkbox') {
+          // Check to see if it's been clicked already
+          if ($this.hasClass('checked')) {
+            // Uncheck it
+            $target.prop('checked',false);
+            // remove the checked class from the clicked element
+            $this.removeClass('checked');
+          } else {
+            // Check it
+            $target.prop('checked',true);
+            // Add the checked class to the clicked element
+            $this.addClass('checked');
+          }
+
+        }
       });
 
     });
